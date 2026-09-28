@@ -176,7 +176,11 @@ importers:
 
   services/fraud: {}
 
-  services/order: {}
+  services/order:
+    dependencies:
+      '@ibapaba/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
 
   services/organization:
     dependencies:
