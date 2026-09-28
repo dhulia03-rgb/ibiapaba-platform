@@ -1,5 +1,5 @@
-import type { Order } from "@ibapaba/contracts";
+import type { Organization } from "@ibapaba/contracts";
 
 export const serviceName = "organization";
 
-export type OrganizationOrder = Order;
+export type OrganizationRecord = Organization;
