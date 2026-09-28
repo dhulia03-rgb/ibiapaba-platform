@@ -172,7 +172,11 @@ importers:
 
   packages/contracts: {}
 
-  services/analytics: {}
+  services/analytics:
+    dependencies:
+      '@ibapaba/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
 
   services/fraud:
     dependencies:
