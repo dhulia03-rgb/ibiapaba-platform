@@ -188,7 +188,11 @@ importers:
         specifier: workspace:*
         version: link:../../packages/contracts
 
-  services/review: {}
+  services/review:
+    dependencies:
+      '@ibapaba/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
 
 packages:
 
