@@ -192,6 +192,9 @@ importers:
       '@ibapaba/contracts':
         specifier: workspace:*
         version: link:../../packages/contracts
+      fastify:
+        specifier: ^5.12.5
+        version: 5.12.5
 
   services/organization:
     dependencies:
