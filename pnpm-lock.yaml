@@ -170,6 +170,22 @@ importers:
         specifier: ^7.0.2
         version: 7.0.2
 
+  packages/contracts: {}
+
+  services/analytics: {}
+
+  services/fraud: {}
+
+  services/order: {}
+
+  services/organization:
+    dependencies:
+      '@ibapaba/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
+
+  services/review: {}
+
 packages:
 
   '@typescript/typescript-aix-ppc64@7.0.2':
