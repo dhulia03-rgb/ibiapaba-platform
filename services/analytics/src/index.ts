@@ -1,5 +1,5 @@
-import type { Order } from "@ibapaba/contracts";
+import type { AnalyticsEvent } from "@ibapaba/contracts";
 
 export const serviceName = "analytics";
 
-export type AnalyticsOrder = Order;
+export type AnalyticsRecord = AnalyticsEvent;
