@@ -1,5 +1,5 @@
-import type { Order } from "@ibapaba/contracts";
+import type { FraudCheck } from "@ibapaba/contracts";
 
 export const serviceName = "fraud";
 
-export type FraudOrder = Order;
+export type FraudRecord = FraudCheck;
