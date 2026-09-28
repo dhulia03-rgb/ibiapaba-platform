@@ -174,7 +174,11 @@ importers:
 
   services/analytics: {}
 
-  services/fraud: {}
+  services/fraud:
+    dependencies:
+      '@ibapaba/contracts':
+        specifier: workspace:*
+        version: link:../../packages/contracts
 
   services/order:
     dependencies:
