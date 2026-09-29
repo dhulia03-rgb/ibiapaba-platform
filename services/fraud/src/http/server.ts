@@ -7,7 +7,7 @@ export function buildServer() {
   const app = Fastify();
 
   const analyticsClient = new HttpAnalyticsClient(
-    "http://localhost:3005",
+    "http://localhost:3002",
   );
 
   app.post("/fraud-checks", async (request) => {
