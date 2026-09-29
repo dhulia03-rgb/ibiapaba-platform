@@ -1,3 +1,5 @@
+import type { AnalyticsClient } from "../infrastructure/analytics/analytics-client.js";
+
 export interface FraudCheckRequest {
   orderId: string;
   organizationId: string;
@@ -9,9 +11,10 @@ export interface FraudCheckResponse {
   score: number;
 }
 
-export function checkFraudHandler(
+export async function checkFraudHandler(
   request: FraudCheckRequest,
-): FraudCheckResponse {
+  analyticsClient?: AnalyticsClient,
+): Promise<FraudCheckResponse> {
   if (!request.orderId.trim()) {
     throw new Error("Order id is required");
   }
@@ -24,8 +27,20 @@ export function checkFraudHandler(
     throw new Error("Amount must be a non-negative number");
   }
 
-  return {
+  const result = {
     approved: true,
     score: 0,
   };
+
+  if (analyticsClient) {
+    await analyticsClient.publish({
+      id: crypto.randomUUID(),
+      type: "fraud_checked",
+      organizationId: request.organizationId,
+      occurredAt: new Date().toISOString(),
+      entityId: request.orderId,
+    });
+  }
+
+  return result;
 }
