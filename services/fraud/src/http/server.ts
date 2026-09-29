@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import { checkFraudHandler } from "./check-fraud-handler.js";
 import { createFraudCheckHandler } from "./create-fraud-check-handler.js";
 
 export function buildServer() {
@@ -11,6 +12,14 @@ export function buildServer() {
     };
 
     return createFraudCheckHandler(body);
+  });
+
+  app.post("/fraud/check", async (request) => {
+    return checkFraudHandler(request.body as {
+      orderId: string;
+      organizationId: string;
+      amount: number;
+    });
   });
 
   return app;
